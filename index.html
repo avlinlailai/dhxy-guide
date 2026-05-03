@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>逍遥西游玩家资料站</title>
+  <style>
+    :root {
+      --bg: #f6f5ef;
+      --card: #fffdf8;
+      --ink: #23201b;
+      --subtle: #6f695d;
+      --brand: #c1462c;
+      --line: #e6dece;
+      --shadow: 0 14px 38px rgba(60, 42, 24, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Source Han Sans SC", "Microsoft YaHei UI", "PingFang SC", sans-serif;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(193, 70, 44, 0.18), transparent 26%),
+        radial-gradient(circle at 86% 8%, rgba(129, 76, 35, 0.14), transparent 22%),
+        linear-gradient(180deg, #f9f7f1 0%, #f3f1e8 52%, #eeeadf 100%);
+      padding: 22px 16px calc(48px + env(safe-area-inset-bottom));
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(145deg, #fffefa 0%, #fff8ee 100%);
+      box-shadow: var(--shadow);
+      padding: 22px 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -90px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(193, 70, 44, 0.28) 0%, rgba(193, 70, 44, 0) 65%);
+      pointer-events: none;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "STZhongsong", "Songti SC", "Source Han Serif SC", serif;
+      font-size: clamp(1.8rem, 1.6vw + 1.1rem, 2.6rem);
+      line-height: 1.2;
+    }
+
+    .sub {
+      margin-top: 10px;
+      color: var(--subtle);
+      font-size: 1.02rem;
+    }
+
+    .grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 14px;
+      min-height: 148px;
+      box-shadow: 0 8px 24px rgba(60, 42, 24, 0.08);
+      transform: translateY(0);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(60, 42, 24, 0.14);
+      border-color: #d8c9a8;
+    }
+
+    .card:focus-visible {
+      outline: 3px solid rgba(193, 70, 44, 0.32);
+      outline-offset: 2px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(193, 70, 44, 0.12);
+      color: #8f3320;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 1.04rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .desc {
+      margin: 8px 0 0;
+      color: var(--subtle);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .foot {
+      margin-top: 16px;
+      color: var(--subtle);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 14px 10px calc(28px + env(safe-area-inset-bottom)); }
+      .hero { border-radius: 14px; padding: 16px 14px; }
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .card {
+        border-radius: 10px;
+        padding: 12px;
+        min-height: 124px;
+      }
+      .tag { font-size: 0.78rem; }
+      .title { font-size: 1rem; }
+      .desc { font-size: 0.9rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card { transition: none; }
+      .card:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>逍遥西游玩家资料站</h1>
+      <p class="sub">攻略、职业、法宝与养成资料统一入口。点击任意卡片即可进入对应静态页面。</p>
+
+      <div class="grid">
+        <a class="card" href="beginner-guide.html">
+          <span class="tag">入门</span>
+          <h2 class="title">新手攻略</h2>
+          <p class="desc">前期升级、基础玩法与路线建议。</p>
+        </a>
+
+        <a class="card" href="earth-fiend-guide.html">
+          <span class="tag">进阶</span>
+          <h2 class="title">地煞星攻略</h2>
+          <p class="desc">星级打法、队伍配置、法宝与宠物建议。</p>
+        </a>
+
+        <a class="card" href="four-saints-guide.html">
+          <span class="tag">活动</span>
+          <h2 class="title">四圣攻略</h2>
+          <p class="desc">四圣星君触发机制与战斗要点。</p>
+        </a>
+
+        <a class="card" href="artifact-talents.html">
+          <span class="tag">养成</span>
+          <h2 class="title">法宝天赋</h2>
+          <p class="desc">法宝开启、天赋系统与常见选择思路。</p>
+        </a>
+
+        <a class="card" href="race-class-attributes.html">
+          <span class="tag">资料</span>
+          <h2 class="title">职业种族属性</h2>
+          <p class="desc">各族属性成长、抗性取向与重铸方向。</p>
+        </a>
+
+        <a class="card" href="gear-refine-attributes.html">
+          <span class="tag">资料</span>
+          <h2 class="title">装备炼化属性表</h2>
+          <p class="desc">各部位炼化属性与搭配参考。</p>
+        </a>
+
+        <a class="card" href="pet-ultimate-combos.html">
+          <span class="tag">宠物</span>
+          <h2 class="title">召唤兽组合终极技能介绍</h2>
+          <p class="desc">终极技能效果、冲突关系与实战定位。</p>
+        </a>
+
+        <a class="card" href="announcement.html">
+          <span class="tag">公告</span>
+          <h2 class="title">大话逍遥</h2>
+          <p class="desc">开区信息与客服联系方式等公告内容。</p>
+        </a>
+      </div>
+
+      <p class="foot">页面已静态化，可直接部署到任意静态托管平台。</p>
+    </section>
+  </main>
+</body>
+</html>
